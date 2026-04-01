@@ -13,5 +13,15 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
  if not isinstance(limit, int):
-  raise TypeError("Invalid value type, use int or float")
-
+  raise TypeError("Invalid value type, use int for the limit")
+ result = []
+ for i in range(len(bmi)):
+   if not isinstance(bmi[i], (int, float)):
+     raise TypeError("Invalid value type, use int or float for the list items")
+   else:
+    if bmi[i] > limit:
+     result.append(True)
+    else:
+     result.append(False)
+ return result
+   
