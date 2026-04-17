@@ -1,5 +1,6 @@
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
-
+ """Takes 2 lists of integers or floats in input and returns a list
+of BMI values."""
  if len(height) != len(weight):
     raise ValueError("Lists must have the same size")
  bmi = []
@@ -13,6 +14,9 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
  if not isinstance(limit, int):
+  """Accepts a list of integers or floats and an integer representing
+a limit as parameters.
+It returns a list of booleans (True if above the limit)."""
   raise TypeError("Invalid value type, use int for the limit")
  result = []
  for i in range(len(bmi)):
