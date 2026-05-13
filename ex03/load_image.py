@@ -6,22 +6,20 @@ def ft_load(path: str):
 content in RGB format"""
 
  if not path.lower().endswith((".jpg", ".jpeg")):
-  print("Error: Wrong format. JPG or JPEG only")
-  return
- 
+  raise ValueError("Error: Wrong format. JPG or JPEG only")
+
  try:
-  img = Image.open(path)
-  rgb_im = img.convert('RGB')
-  pixels = np.array(rgb_im)
+   img = Image.open(path)
+   rgb_im = img.convert("RGB")
+   pixels = np.array(rgb_im)
 
  except FileNotFoundError:
-  print("Error: File not found")
-  return
- 
+  raise FileNotFoundError("Error: File not found")
+
  except OSError:
-  print("Error: Cannot open image")
-  return
+  raise OSError("Error: Cannot open image")
 
  shape = pixels.shape
  print(f"The shape of image is: {shape}")
+
  return pixels
