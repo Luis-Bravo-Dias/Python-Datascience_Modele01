@@ -56,4 +56,3 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
             result.append(False)
 
     return result
-   

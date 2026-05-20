@@ -1,27 +1,28 @@
 from PIL import Image
 import numpy as np
 
+
 def ft_load(path: str):
- """Loads an image, prints its format, and its pixels
-content in RGB format"""
+    """Loads an image, prints its format, and its pixels
+    content in RGB format"""
 
- if not path.lower().endswith((".jpg", ".jpeg")):
-  print("Error: Wrong format. JPG or JPEG only")
-  return
- 
- try:
-  img = Image.open(path)
-  rgb_im = img.convert('RGB')
-  pixels = np.array(rgb_im)
+    if not path.lower().endswith((".jpg", ".jpeg")):
+        print("Error: Wrong format. JPG or JPEG only")
+        return
 
- except FileNotFoundError:
-  print("Error: File not found")
-  return
- 
- except OSError:
-  print("Error: Cannot open image")
-  return
+    try:
+        img = Image.open(path)
+        rgb_im = img.convert('RGB')
+        pixels = np.array(rgb_im)
 
- shape = pixels.shape
- print(f"The shape of image is: {shape}")
- return pixels
+    except FileNotFoundError:
+        print("Error: File not found")
+        return
+
+    except OSError:
+        print("Error: Cannot open image")
+        return
+
+    shape = pixels.shape
+    print(f"The shape of image is: {shape}")
+    return pixels

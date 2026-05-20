@@ -9,20 +9,20 @@ def main():
         img = ft_load("animal.jpeg")
         print(img)
         height, width = img.shape[0], img.shape[1]
-        
+
         y_center = height // 2
         x_center = width // 2
-        
+
         zoom = img[
-         y_center - 200 : y_center + 200,
-         x_center - 200 : x_center + 200
-		]
-        #grayscale
+         y_center - 200: y_center + 200,
+         x_center - 200: x_center + 200
+        ]
+        # grayscale
         zoom = np.mean(zoom, axis=2, keepdims=True)
-        
-		#float to int
+
+        # float to int
         zoom = zoom.astype(np.uint8)
-        
+
         print(f"New shape after slicing: {zoom.shape}")
         print(zoom)
         plt.imshow(zoom.squeeze(), cmap="gray")
